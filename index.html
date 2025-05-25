@@ -1,0 +1,1492 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Islomiy Ilova</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <nav class="nav-menu">
+            <button class="nav-btn active" data-section="namoz">Namoz vaqtlari</button>
+            <button class="nav-btn" data-section="duolar">Duolar</button>
+            <button class="nav-btn" data-section="zikrlar">Zikrlar</button>
+            <button class="nav-btn" data-section="asmaul-husna">Asmaul Husna</button>
+            <button class="nav-btn" data-section="prophets">Payg'ambarlar tarixi</button>
+        </nav>
+
+        <section id="namoz" class="section active">
+            <div class="prayer-times">
+                <button class="notification-btn" id="notificationBtn">
+                    <i class="fas fa-bell"></i>
+                    <span class="btn-text">Eslatmalarni yoqish</span>
+                </button>
+                <div class="notification-status" id="notificationStatus">
+                    <strong>Eslatmalar holati:</strong>
+                    <p class="status-message"></p>
+                </div>
+                <div class="location-info">
+                    <h2>Namoz vaqtlari</h2>
+                    <div class="region-selector">
+                        <select id="regionSelect" class="region-select">
+                            <option value="">Viloyatni tanlang</option>
+                            <option value="toshkent">Toshkent</option>
+                            <option value="andijon">Andijon</option>
+                            <option value="buxoro">Buxoro</option>
+                            <option value="fargona">Farg'ona</option>
+                            <option value="jizzax">Jizzax</option>
+                            <option value="namangan">Namangan</option>
+                            <option value="navoiy">Navoiy</option>
+                            <option value="qashqadaryo">Qarshi</option>
+                            <option value="samarqand">Samarqand</option>
+                            <option value="sirdaryo">Guliston</option>
+                            <option value="surxondaryo">Termiz</option>
+                            <option value="xorazm">Urganch</option>
+                            <option value="qoraqalpogiston">Nukus</option>
+                        </select>
+                    </div>
+                    <div class="current-date"></div>
+                </div>
+                <div class="times-container">
+                    <div class="prayer-time" data-prayer="Bomdod">
+                        <div class="prayer-info">
+                            <span class="prayer-name">Bomdod</span>
+                            <span class="prayer-label">Saharlik tugashi</span>
+                        </div>
+                        <div class="time">--:--</div>
+                    </div>
+                    <div class="prayer-time" data-prayer="Quyosh">
+                        <div class="prayer-info">
+                            <span class="prayer-name">Quyosh</span>
+                            <span class="prayer-label">Quyosh chiqishi</span>
+                        </div>
+                        <div class="time">--:--</div>
+                    </div>
+                    <div class="prayer-time" data-prayer="Peshin">
+                        <div class="prayer-info">
+                            <span class="prayer-name">Peshin</span>
+                            <span class="prayer-label">Peshin vaqti</span>
+                        </div>
+                        <div class="time">--:--</div>
+                    </div>
+                    <div class="prayer-time" data-prayer="Asr">
+                        <div class="prayer-info">
+                            <span class="prayer-name">Asr</span>
+                            <span class="prayer-label">Asr vaqti</span>
+                        </div>
+                        <div class="time">--:--</div>
+                    </div>
+                    <div class="prayer-time" data-prayer="Shom">
+                        <div class="prayer-info">
+                            <span class="prayer-name">Shom</span>
+                            <span class="prayer-label">Iftorlik vaqti</span>
+                        </div>
+                        <div class="time">--:--</div>
+                    </div>
+                    <div class="prayer-time" data-prayer="Xufton">
+                        <div class="prayer-info">
+                            <span class="prayer-name">Xufton</span>
+                            <span class="prayer-label">Xufton vaqti</span>
+                        </div>
+                        <div class="time">--:--</div>
+                    </div>
+                </div>
+                <div class="next-prayer">
+                    <div class="next-prayer-label">Keyingi namoz vaqtigacha:</div>
+                    <div class="next-prayer-time">--:--:--</div>
+                </div>
+            </div>
+        </section>
+
+        <section id="duolar" class="section">
+            <div class="duas-container">
+                <div class="dua-search">
+                    <input type="text" id="duaSearch" placeholder="Duo qidirish...">
+                    <select id="duaCategory">
+                        <option value="all">Barcha duolar</option>
+                        <option value="Tonggi duolar">Tonggi duolar</option>
+                        <option value="Kechki duolar">Kechki duolar</option>
+                        <option value="Namoz duolari">Namoz duolari</option>
+                        <option value="Taom duolari">Taom duolari</option>
+                        <option value="Safar duolari">Safar duolari</option>
+                        <option value="Himoya duolari">Himoya duolari</option>
+                        <option value="Istig'for duolari">Istig'for duolari</option>
+                        <option value="Ro'za duolari">Ro'za duolari</option>
+                        <option value="Nikoh duolari">Nikoh duolari</option>
+                        <option value="Qiyin vaziyat duolari">Qiyin vaziyat duolari</option>
+                        <option value="Qur'on duolari">Qur'on duolari</option>
+                        <option value="Uy duolari">Uy duolari</option>
+                    </select>
+                </div>
+
+                <div class="dua-card">
+                    <div class="dua-header">
+                        <h3>Uyqudan uyg'onganda</h3>
+                        <span class="category-tag">Tonggi duolar</span>
+                    </div>
+                    <div class="arabic-text">الْحَمْدُ لِلَّهِ الَّذِي أَحْيَانَا بَعْدَ مَا أَمَاتَنَا وَإِلَيْهِ النُّشُورُ</div>
+                    <div class="transliteration">Alhamdu lillahil-lazi ahyana ba'da ma amatana wa ilayhin-nushur</div>
+                    <div class="meaning">Ma'nosi: Bizni o'ldirgandan so'ng qayta tiriltirgan Allohga hamd bo'lsin va (oxiratda) qayta tirilish Ham Uning huzurigadir.</div>
+                    <div class="reference">Manba: Buxoriy</div>
+                </div>
+
+                <div class="dua-card">
+                    <div class="dua-header">
+                        <h3>Kiyim kiyishda</h3>
+                        <span class="category-tag">Tonggi duolar</span>
+                    </div>
+                    <div class="arabic-text">الْحَمْدُ لِلَّهِ الَّذِي كَسَانِي هَذَا وَرَزَقَنِيهِ مِنْ غَيْرِ حَوْلٍ مِنِّي وَلَا قُوَّةٍ</div>
+                    <div class="transliteration">Alhamdu lillahil-lazi kasani haza wa razaqanihi min g'ayri hawlin minni wa la quwwah</div>
+                    <div class="meaning">Ma'nosi: Menga buni kiydirib, o'z kuch-quvvatimdan tashqari rizq qilib bergan Allohga hamd bo'lsin.</div>
+                    <div class="reference">Manba: Abu Dovud, Termiziy</div>
+                </div>
+
+                <div class="dua-card">
+                    <div class="dua-header">
+                        <h3>Masjidga kirish duosi</h3>
+                        <span class="category-tag">Namoz duolari</span>
+                    </div>
+                    <div class="arabic-text">اللَّهُمَّ افْتَحْ لِي أَبْوَابَ رَحْمَتِكَ</div>
+                    <div class="transliteration">Allahumma-ftah li abwaba rahmatik</div>
+                    <div class="meaning">Ma'nosi: Ey Alloh, men uchun rahmat eshiklarini och.</div>
+                    <div class="reference">Manba: Muslim</div>
+                </div>
+
+                <div class="dua-card">
+                    <div class="dua-header">
+                        <h3>Masjiddan chiqish duosi</h3>
+                        <span class="category-tag">Namoz duolari</span>
+                    </div>
+                    <div class="arabic-text">اللَّهُمَّ إِنِّي أَسْأَلُكَ مِنْ فَضْلِكَ</div>
+                    <div class="transliteration">Allahumma inni as'aluka min fadlik</div>
+                    <div class="meaning">Ma'nosi: Ey Alloh, Sendan fazlu marhamatingni so'rayman.</div>
+                    <div class="reference">Manba: Muslim</div>
+                </div>
+
+                <div class="dua-card">
+                    <div class="dua-header">
+                        <h3>Taom boshlashdan oldin</h3>
+                        <span class="category-tag">Taom duolari</span>
+                    </div>
+                    <div class="arabic-text">بِسْمِ اللَّهِ وَعَلَى بَرَكَةِ الله</div>
+                    <div class="transliteration">Bismillahi wa 'ala barakatillah</div>
+                    <div class="meaning">Ma'nosi: Allohning nomi bilan va Allohning barakasi ila.</div>
+                    <div class="reference">Manba: Abu Dovud</div>
+                </div>
+
+                <div class="dua-card">
+                    <div class="dua-header">
+                        <h3>Taomdan keyin</h3>
+                        <span class="category-tag">Taom duolari</span>
+                    </div>
+                    <div class="arabic-text">الْحَمْدُ لِلَّهِ الَّذِي أَطْعَمَنِي هَذَا وَرَزَقَنِيهِ مِنْ غَيْرِ حَوْلٍ مِنِّي وَلَا قُوَّةٍ</div>
+                    <div class="transliteration">Alhamdu lillahil-lazi at'amani haza wa razaqanihi min g'ayri hawlin minni wa la quwwah</div>
+                    <div class="meaning">Ma'nosi: Menga bu taomni yedirib, o'z kuch-quvvatimdan tashqari rizq qilib bergan Allohga hamd bo'lsin.</div>
+                    <div class="reference">Manba: Abu Dovud, Termiziy</div>
+                </div>
+
+                <div class="dua-card">
+                    <div class="dua-header">
+                        <h3>Safarga chiqish duosi</h3>
+                        <span class="category-tag">Safar duolari</span>
+                    </div>
+                    <div class="arabic-text">اللَّهُمَّ إِنَّا نَسْأَلُكَ فِي سَفَرِنَا هَذَا الْبِرَّ وَالتَّقْوَى، وَمِنَ الْعَمَلِ مَا تَرْضَى، اللَّهُمَّ هَوِّنْ عَلَيْنَا سَفَرَنَا هَذَا وَاطْوِ عَنَّا بُعْدَهُ</div>
+                    <div class="transliteration">Allahumma inna nas'aluka fi safarina hadhal-birra wat-taqwa, wa minal-'amali ma tarda, Allahumma hawwin 'alayna safarana hadha watwi 'anna bu'dahu</div>
+                    <div class="meaning">Ma'nosi: Ey Alloh, bu safarimizda Sendan yaxshilik va taqvoni, Sen rozi bo'ladigan amallarni so'raymiz. Ey Alloh, bu safarimizni bizga oson qil va uning uzoqligini bizga yaqin qil.</div>
+                    <div class="reference">Manba: Muslim</div>
+                </div>
+
+                <div class="dua-card">
+                    <div class="dua-header">
+                        <h3>Uyga kirish duosi</h3>
+                        <span class="category-tag">Uy duolari</span>
+                    </div>
+                    <div class="arabic-text">بِسْمِ اللَّهِ وَلَجْنَا، وَبِسْمِ اللَّهِ خَرَجْنَا، وَعَلَى رَبِّنَا تَوَكَّلْنَا</div>
+                    <div class="transliteration">Bismillahi walajna, wa bismillahi kharajna, wa 'ala rabbina tawakkalna</div>
+                    <div class="meaning">Ma'nosi: Allohning ismi bilan kirdik, Allohning ismi bilan chiqdik va Rabbimizga tavakkal qildik.</div>
+                    <div class="reference">Manba: Abu Dovud</div>
+                </div>
+
+                <div class="dua-card">
+                    <div class="dua-header">
+                        <h3>Har kungi himoya duosi</h3>
+                        <span class="category-tag">Himoya duolari</span>
+                    </div>
+                    <div class="arabic-text">بِسْمِ اللَّهِ الَّذِي لَا يَضُرُّ مَعَ اسْمِهِ شَيْءٌ فِي الْأَرْضِ وَلَا فِي السَّمَاءِ وَهُوَ السَّمِيعُ الْعَلِيمُ</div>
+                    <div class="transliteration">Bismillahil-lazi la yadurru ma'as-mihi shay'un fil-ardi wa la fis-sama'i wa huwas-sami'ul-'alim</div>
+                    <div class="meaning">Ma'nosi: Allohning ismi bilan (boshlayman), U Zotning ismi bilan yerda ham, osmonda ham hech narsa zarar yetkaza olmaydi. U eshitguvchi va bilguvchidir.</div>
+                    <div class="reference">Manba: Abu Dovud, Termiziy</div>
+                </div>
+
+                <div class="dua-card">
+                    <div class="dua-header">
+                        <h3>Sayyidul Istig'for</h3>
+                        <span class="category-tag">Istig'for duolari</span>
+                    </div>
+                    <div class="arabic-text">اللَّهُمَّ أَنْتَ رَبِّي لَا إِلَهَ إِلَّا أَنْتَ، خَلَقْتَنِي وَأَنَا عَبْدُكَ، وَأَنَا عَلَى عَهْدِكَ وَوَعْدِكَ مَا اسْتَطَعْتُ، أَعُوذُ بِكَ مِنْ شَرِّ مَا صَنَعْتُ، أَبُوءُ لَكَ بِنِعْمَتِكَ عَلَيَّ، وَأَبُوءُ بِذَنْبِي فَاغْفِرْ لِي فَإِنَّهُ لَا يَغْفِرُ الذُّنُوبَ إِلَّا أَنْتَ</div>
+                    <div class="transliteration">Allahumma anta rabbi, la ilaha illa anta, khalaqtani wa ana 'abduka, wa ana 'ala 'ahdika wa wa'dika mas-tata'tu, a'uzu bika min sharri ma sana'tu, abu'u laka bi ni'matika 'alayya, wa abu'u bi zanbi fagfir li, fa innahu la yagfiruz-zunuba illa anta</div>
+                    <div class="meaning">Ma'nosi: Ey Alloh, Sen Parvardigorimsan. Sendan o'zga iloh yo'q. Meni Sen yaratgansan va men Sening qulingman. Men kuchim yetgancha Senga bergan ahdimda va va'damda turaman. Qilgan ishlarimning yomonligidan Sendan panoh so'rayman. Menga bergan ne'matlaringni e'tirof etaman va gunohlarimni ham e'tirof etaman. Meni mag'firat qilgin, zero gunohlarni Sendan o'zga mag'firat qiluvchi yo'q.</div>
+                    <div class="reference">Manba: Buxoriy</div>
+                </div>
+
+                <div class="dua-card">
+                    <div class="dua-header">
+                        <h3>Uyquga yotishdan oldin</h3>
+                        <span class="category-tag">Kechki duolar</span>
+                    </div>
+                    <div class="arabic-text">بِاسْمِكَ اللَّهُمَّ أَمُوتُ وَأَحْيَا</div>
+                    <div class="transliteration">Bismika Allahumma amutu wa ahya</div>
+                    <div class="meaning">Ma'nosi: Ey Alloh, Sening isming bilan o'laman va tirilaaman.</div>
+                    <div class="reference">Manba: Buxoriy</div>
+                </div>
+
+                <div class="dua-card">
+                    <div class="dua-header">
+                        <h3>Iftorlik duosi</h3>
+                        <span class="category-tag">Ro'za duolari</span>
+                    </div>
+                    <div class="arabic-text">اللَّهُمَّ لَكَ صُمْتُ وَبِكَ آمَنْتُ وَعَلَى رِزْقِكَ أَفْطَرْتُ</div>
+                    <div class="transliteration">Allahumma laka sumtu wa bika amantu wa 'ala rizqika aftartu</div>
+                    <div class="meaning">Ma'nosi: Ey Alloh, Sen uchun ro'za tutdim, Senga iymon keltirdim va Sening rizqing bilan iftor qildim.</div>
+                    <div class="reference">Manba: Abu Dovud</div>
+                </div>
+
+                <div class="dua-card">
+                    <div class="dua-header">
+                        <h3>Nikoh kechasi duosi</h3>
+                        <span class="category-tag">Nikoh duolari</span>
+                    </div>
+                    <div class="arabic-text">اللَّهُمَّ بَارِكْ لِي فِي أَهْلِي وَبَارِكْ لَهُمْ فِيَّ</div>
+                    <div class="transliteration">Allahumma barik li fi ahli wa barik lahum fiyya</div>
+                    <div class="meaning">Ma'nosi: Ey Alloh, menga ahlimda baraka ber va ularga menda baraka ber.</div>
+                    <div class="reference">Manba: Abu Dovud</div>
+                </div>
+
+                <div class="dua-card">
+                    <div class="dua-header">
+                        <h3>Mushkul vaziyatda</h3>
+                        <span class="category-tag">Qiyin vaziyat duolari</span>
+                    </div>
+                    <div class="arabic-text">لَا إِلَهَ إِلَّا أَنْتَ سُبْحَانَكَ إِنِّي كُنْتُ مِنَ الظَّالِمِينَ</div>
+                    <div class="transliteration">La ilaha illa anta subhanaka inni kuntu minaz-zalimin</div>
+                    <div class="meaning">Ma'nosi: Sendan o'zga iloh yo'q. Sen poksan. Albatta men zolimlardan bo'ldim.</div>
+                    <div class="reference">Manba: Termiziy</div>
+                </div>
+
+                <div class="dua-card">
+                    <div class="dua-header">
+                        <h3>Qur'on o'qishni boshlash duosi</h3>
+                        <span class="category-tag">Qur'on duolari</span>
+                    </div>
+                    <div class="arabic-text">اللَّهُمَّ افْتَحْ عَلَيَّ حِكْمَتَكَ وَانْشُرْ عَلَيَّ رَحْمَتَكَ وَذَكِّرْنِي مَا نَسِيتُ يَا ذَا الْجَلَالِ وَالْإِكْرَامِ</div>
+                    <div class="transliteration">Allahummaf-tah 'alayya hikmataka wanshur 'alayya rahmataka wa dhakkirni ma nasitu ya dhal-jalali wal-ikram</div>
+                    <div class="meaning">Ma'nosi: Ey Alloh, menga hikmatlaringni och va rahmatlaringni yoy. Unutganlarimni eslatgin, ey ulug'lik va hurmat egasi.</div>
+                    <div class="reference">Manba: Ibn Hibbon</div>
+                </div>
+            </div>
+        </section>
+
+        <section id="zikrlar" class="section">
+            <h2 class="section-title">Kunlik Zikrlar</h2>
+            <div class="zikr-container">
+                <div class="zikr-card">
+                    <div class="zikr-header">
+                        <h3>Tasbeh</h3>
+                        <span class="category-tag">Eng ko'p aytiladigan zikr</span>
+                    </div>
+                    <div class="arabic-text">سُبْحَانَ اللهِ</div>
+                    <div class="transliteration">Subhanalloh</div>
+                    <div class="meaning">Ma'nosi: Alloh barcha aybu nuqsonlardan pokdir</div>
+                    <div class="count">33 marta</div>
+                </div>
+
+                <div class="zikr-card">
+                    <div class="zikr-header">
+                        <h3>Tahmid</h3>
+                        <span class="category-tag">Eng ko'p aytiladigan zikr</span>
+                    </div>
+                    <div class="arabic-text">اَلْحَمْدُ لِلهِ</div>
+                    <div class="transliteration">Alhamdulillah</div>
+                    <div class="meaning">Ma'nosi: Barcha maqtovlar Allohga xosdir</div>
+                    <div class="count">33 marta</div>
+                </div>
+
+                <div class="zikr-card">
+                    <div class="zikr-header">
+                        <h3>Takbir</h3>
+                        <span class="category-tag">Eng ko'p aytiladigan zikr</span>
+                    </div>
+                    <div class="arabic-text">اللهُ أَكْبَرُ</div>
+                    <div class="transliteration">Allohu Akbar</div>
+                    <div class="meaning">Ma'nosi: Alloh buyukdir</div>
+                    <div class="count">33 marta</div>
+                </div>
+
+                <div class="zikr-card">
+                    <div class="zikr-header">
+                        <h3>Tahlil</h3>
+                        <span class="category-tag">Eng ko'p aytiladigan zikr</span>
+                    </div>
+                    <div class="arabic-text">لَا إِلَهَ إِلَّا اللهُ</div>
+                    <div class="transliteration">La ilaha illalloh</div>
+                    <div class="meaning">Ma'nosi: Allohdan o'zga iloh yo'q</div>
+                    <div class="count">100 marta</div>
+                </div>
+
+                <div class="zikr-card">
+                    <div class="zikr-header">
+                        <h3>Istig'for</h3>
+                        <span class="category-tag">Eng ko'p aytiladigan zikr</span>
+                    </div>
+                    <div class="arabic-text">أَسْتَغْفِرُ اللهَ</div>
+                    <div class="transliteration">Astag'firulloh</div>
+                    <div class="meaning">Ma'nosi: Allohdan kechirim so'rayman</div>
+                    <div class="count">100 marta</div>
+                </div>
+
+                <div class="zikr-card">
+                    <div class="zikr-header">
+                        <h3>Salovot</h3>
+                        <span class="category-tag">Eng ko'p aytiladigan zikr</span>
+                    </div>
+                    <div class="arabic-text">اللَّهُمَّ صَلِّ عَلَى مُحَمَّدٍ وَعَلَى آلِ مُحَمَّدٍ</div>
+                    <div class="transliteration">Allohumma solli 'ala Muhammadin va 'ala ali Muhammad</div>
+                    <div class="meaning">Ma'nosi: Allohim, Muhammad (s.a.v)ga va u zotning oilalariga salovot va salomlar bo'lsin</div>
+                    <div class="count">100 marta</div>
+                </div>
+
+                <div class="zikr-card">
+                    <div class="zikr-header">
+                        <h3>Kalimatul Tavhid</h3>
+                        <span class="category-tag">Eng ko'p aytiladigan zikr</span>
+                    </div>
+                    <div class="arabic-text">لَا إِلَهَ إِلَّا اللهُ مُحَمَّدٌ رَسُولُ اللهِ</div>
+                    <div class="transliteration">La ilaha illallohu Muhammadur rosululloh</div>
+                    <div class="meaning">Ma'nosi: Allohdan o'zga iloh yo'q, Muhammad Allohning elchisidir</div>
+                    <div class="count">100 marta</div>
+                </div>
+
+                <div class="zikr-card">
+                    <div class="zikr-header">
+                        <h3>Hasbunalloh</h3>
+                        <span class="category-tag">Eng ko'p aytiladigan zikr</span>
+                    </div>
+                    <div class="arabic-text">حَسْبُنَا اللهُ وَنِعْمَ الْوَكِيلُ</div>
+                    <div class="transliteration">Hasbunallohu va ni'mal vakil</div>
+                    <div class="meaning">Ma'nosi: Bizga Allohning O'zi kifoya va U eng yaxshi vakil</div>
+                    <div class="count">100 marta</div>
+                </div>
+
+                <div class="zikr-card">
+                    <div class="zikr-header">
+                        <h3>La havla</h3>
+                        <span class="category-tag">Eng ko'p aytiladigan zikr</span>
+                    </div>
+                    <div class="arabic-text">لَا حَوْلَ وَلَا قُوَّةَ إِلَّا بِاللهِ</div>
+                    <div class="transliteration">La havla va la quvvata illa billah</div>
+                    <div class="meaning">Ma'nosi: Kuch va quvvat faqat Alloh bilan bo'lur</div>
+                    <div class="count">100 marta</div>
+                </div>
+
+                <div class="zikr-card">
+                    <div class="zikr-header">
+                        <h3>Kalimat ul-Ikhlos</h3>
+                        <span class="category-tag">Eng ko'p aytiladigan zikr</span>
+                    </div>
+                    <div class="arabic-text">لَا إِلَهَ إِلَّا اللهُ وَحْدَهُ لَا شَرِيكَ لَهُ، لَهُ الْمُلْكُ وَلَهُ الْحَمْدُ وَهُوَ عَلَى كُلِّ شَيْءٍ قَدِيرٌ</div>
+                    <div class="transliteration">La ilaha illallohu vahdahu la sharika lah, lahul mulku va lahul hamdu va huva 'ala kulli shay'in qodir</div>
+                    <div class="meaning">Ma'nosi: Allohdan o'zga iloh yo'q, U yagonadir, Uning sherigi yo'q. Mulk Unikidir va maqtov Ungadir. U har narsaga qodirdir</div>
+                    <div class="count">100 marta</div>
+                </div>
+            </div>
+        </section>
+
+        <section id="asmaul-husna" class="section">
+            <h2 class="section-title">Allohning go'zal ismlari</h2>
+            <div class="asma-container">
+                <!-- 1-33 Allohning ismlari -->
+                <div class="asma-card">
+                    <div class="asma-number">1</div>
+                    <div class="asma-arabic">الله</div>
+                    <div class="asma-name">Allah</div>
+                    <div class="asma-meaning">Yagona va haqiqiy iloh</div>
+                    <div class="asma-description">Barcha go'zal ismlar va sifatlarni o'zida mujassam qilgan zot</div>
+                </div>
+                
+                <div class="asma-card">
+                    <div class="asma-number">2</div>
+                    <div class="asma-arabic">الرَّحْمَنُ</div>
+                    <div class="asma-name">Ar-Rahman</div>
+                    <div class="asma-meaning">Mehribon</div>
+                    <div class="asma-description">Barcha maxluqotlarga mehribon bo'lgan zot</div>
+                </div>
+                
+                <div class="asma-card">
+                    <div class="asma-number">3</div>
+                    <div class="asma-arabic">الرَّحِيمُ</div>
+                    <div class="asma-name">Ar-Rahim</div>
+                    <div class="asma-meaning">Rahmli</div>
+                    <div class="asma-description">Mo'minlarga alohida rahm qiluvchi zot</div>
+                </div>
+
+                <div class="asma-card">
+                    <div class="asma-number">4</div>
+                    <div class="asma-arabic">المَلِكُ</div>
+                    <div class="asma-name">Al-Malik</div>
+                    <div class="asma-meaning">Podsho</div>
+                    <div class="asma-description">Mutlaq hokimiyat egasi</div>
+                </div>
+
+                <div class="asma-card">
+                    <div class="asma-number">5</div>
+                    <div class="asma-arabic">القُدُّوسُ</div>
+                    <div class="asma-name">Al-Quddus</div>
+                    <div class="asma-meaning">Muqaddas</div>
+                    <div class="asma-description">Barcha nuqsonlardan pok bo'lgan zot</div>
+                </div>
+
+                <div class="asma-card">
+                    <div class="asma-number">6</div>
+                    <div class="asma-arabic">السَّلاَمُ</div>
+                    <div class="asma-name">As-Salam</div>
+                    <div class="asma-meaning">Tinchlik beruvchi</div>
+                    <div class="asma-description">Barcha ofat va balolardan saqlovchi</div>
+                </div>
+
+                <div class="asma-card">
+                    <div class="asma-number">7</div>
+                    <div class="asma-arabic">المُؤْمِنُ</div>
+                    <div class="asma-name">Al-Mu'min</div>
+                    <div class="asma-meaning">Ishonch beruvchi</div>
+                    <div class="asma-description">O'z bandalariga xotirjamlik ato etuvchi</div>
+                </div>
+
+                <div class="asma-card">
+                    <div class="asma-number">8</div>
+                    <div class="asma-arabic">المُهَيْمِنُ</div>
+                    <div class="asma-name">Al-Muhaymin</div>
+                    <div class="asma-meaning">Himoya qiluvchi</div>
+                    <div class="asma-description">Barcha narsani nazorat qiluvchi va muhofaza etuvchi</div>
+                </div>
+
+                <div class="asma-card">
+                    <div class="asma-number">9</div>
+                    <div class="asma-arabic">العَزِيزُ</div>
+                    <div class="asma-name">Al-Aziz</div>
+                    <div class="asma-meaning">Qudratli</div>
+                    <div class="asma-description">G'olib va yengilmas kuch egasi</div>
+                </div>
+
+                <div class="asma-card">
+                    <div class="asma-number">10</div>
+                    <div class="asma-arabic">الجَبَّارُ</div>
+                    <div class="asma-name">Al-Jabbar</div>
+                    <div class="asma-meaning">Buyuk</div>
+                    <div class="asma-description">O'z irodasini o'tkazuvchi, isloh qiluvchi</div>
+                </div>
+
+                <div class="asma-card">
+                    <div class="asma-number">11</div>
+                    <div class="asma-arabic">المُتَكَبِّرُ</div>
+                    <div class="asma-name">Al-Mutakabbir</div>
+                    <div class="asma-meaning">Ulug'vor</div>
+                    <div class="asma-description">Kibriyosi va ulug'vorligi cheksiz bo'lgan zot</div>
+                </div>
+
+                <div class="asma-card">
+                    <div class="asma-number">12</div>
+                    <div class="asma-arabic">الخَالِقُ</div>
+                    <div class="asma-name">Al-Xoliq</div>
+                    <div class="asma-meaning">Yaratuvchi</div>
+                    <div class="asma-description">Barcha mavjudotni yaratgan zot</div>
+                </div>
+
+                <div class="asma-card">
+                    <div class="asma-number">13</div>
+                    <div class="asma-arabic">البَارِئُ</div>
+                    <div class="asma-name">Al-Bari'</div>
+                    <div class="asma-meaning">Bor qiluvchi</div>
+                    <div class="asma-description">Yo'qdan bor qiluvchi zot</div>
+                </div>
+
+                <div class="asma-card">
+                    <div class="asma-number">14</div>
+                    <div class="asma-arabic">المُصَوِّرُ</div>
+                    <div class="asma-name">Al-Musovvir</div>
+                    <div class="asma-meaning">Shakl beruvchi</div>
+                    <div class="asma-description">Har bir narsaga o'ziga xos shakl beruvchi</div>
+                </div>
+
+                <div class="asma-card">
+                    <div class="asma-number">15</div>
+                    <div class="asma-arabic">الغَفَّارُ</div>
+                    <div class="asma-name">Al-G'affar</div>
+                    <div class="asma-meaning">Kechirimli</div>
+                    <div class="asma-description">Bandalarining gunohlarini ko'p kechiruvchi</div>
+                </div>
+
+                <div class="asma-card">
+                    <div class="asma-number">16</div>
+                    <div class="asma-arabic">القَهَّارُ</div>
+                    <div class="asma-name">Al-Qahhar</div>
+                    <div class="asma-meaning">Bo'ysundiruvchi</div>
+                    <div class="asma-description">Barcha narsani o'z hukmiga bo'ysundiruvchi</div>
+                </div>
+
+                <div class="asma-card">
+                    <div class="asma-number">17</div>
+                    <div class="asma-arabic">الوَهَّابُ</div>
+                    <div class="asma-name">Al-Vahhab</div>
+                    <div class="asma-meaning">Hadya qiluvchi</div>
+                    <div class="asma-description">Tinimsiz in'om va ehson qiluvchi</div>
+                </div>
+
+                <div class="asma-card">
+                    <div class="asma-number">18</div>
+                    <div class="asma-arabic">الرَّزَّاقُ</div>
+                    <div class="asma-name">Ar-Razzaq</div>
+                    <div class="asma-meaning">Rizq beruvchi</div>
+                    <div class="asma-description">Barcha jonzotlarning rizqini yetkazib beruvchi</div>
+                </div>
+
+                <div class="asma-card">
+                    <div class="asma-number">19</div>
+                    <div class="asma-arabic">الفَتَّاحُ</div>
+                    <div class="asma-name">Al-Fattah</div>
+                    <div class="asma-meaning">Ochuvchi</div>
+                    <div class="asma-description">Mushkullarni oson qiluvchi, g'alaba beruvchi</div>
+                </div>
+
+                <div class="asma-card">
+                    <div class="asma-number">20</div>
+                    <div class="asma-arabic">العَلِيمُ</div>
+                    <div class="asma-name">Al-Alim</div>
+                    <div class="asma-meaning">Biluvchi</div>
+                    <div class="asma-description">Hamma narsani biluvchi zot</div>
+                </div>
+
+                <div class="asma-card">
+                    <div class="asma-number">21</div>
+                    <div class="asma-arabic">القَابِضُ</div>
+                    <div class="asma-name">Al-Qabid</div>
+                    <div class="asma-meaning">Tor qiluvchi</div>
+                    <div class="asma-description">Rizqni va ruhlarni qabz qiluvchi</div>
+                </div>
+
+                <div class="asma-card">
+                    <div class="asma-number">22</div>
+                    <div class="asma-arabic">الباسِطُ</div>
+                    <div class="asma-name">Al-Basit</div>
+                    <div class="asma-meaning">Keng qiluvchi</div>
+                    <div class="asma-description">Rizqni keng qiluvchi va yoyuvchi</div>
+                </div>
+
+                <div class="asma-card">
+                    <div class="asma-number">23</div>
+                    <div class="asma-arabic">الخَافِضُ</div>
+                    <div class="asma-name">Al-Xofid</div>
+                    <div class="asma-meaning">Past qiluvchi</div>
+                    <div class="asma-description">Kofirlarni xor qiluvchi</div>
+                </div>
+
+                <div class="asma-card">
+                    <div class="asma-number">24</div>
+                    <div class="asma-arabic">الرَّافِعُ</div>
+                    <div class="asma-name">Ar-Rofi'</div>
+                    <div class="asma-meaning">Yuksaltiruvchi</div>
+                    <div class="asma-description">Mo'minlarning darajasini ko'taruvchi</div>
+                </div>
+
+                <div class="asma-card">
+                    <div class="asma-number">25</div>
+                    <div class="asma-arabic">المُعِزُّ</div>
+                    <div class="asma-name">Al-Mu'izz</div>
+                    <div class="asma-meaning">Aziz qiluvchi</div>
+                    <div class="asma-description">Xohlagan bandalarini aziz qiluvchi</div>
+                </div>
+
+                <div class="asma-card">
+                    <div class="asma-number">26</div>
+                    <div class="asma-arabic">المُذِلُّ</div>
+                    <div class="asma-name">Al-Muzill</div>
+                    <div class="asma-meaning">Xor qiluvchi</div>
+                    <div class="asma-description">Xohlagan kimsani xor qiluvchi</div>
+                </div>
+
+                <div class="asma-card">
+                    <div class="asma-number">27</div>
+                    <div class="asma-arabic">السَّمِيعُ</div>
+                    <div class="asma-name">As-Sami'</div>
+                    <div class="asma-meaning">Eshituvchi</div>
+                    <div class="asma-description">Hamma narsani eshituvchi zot</div>
+                </div>
+
+                <div class="asma-card">
+                    <div class="asma-number">28</div>
+                    <div class="asma-arabic">البَصِيرُ</div>
+                    <div class="asma-name">Al-Basir</div>
+                    <div class="asma-meaning">Ko'ruvchi</div>
+                    <div class="asma-description">Hamma narsani ko'ruvchi zot</div>
+                </div>
+
+                <div class="asma-card">
+                    <div class="asma-number">29</div>
+                    <div class="asma-arabic">الحَكَمُ</div>
+                    <div class="asma-name">Al-Hakam</div>
+                    <div class="asma-meaning">Hakam</div>
+                    <div class="asma-description">Hukm qiluvchi, qaror chiqaruvchi</div>
+                </div>
+
+                <div class="asma-card">
+                    <div class="asma-number">30</div>
+                    <div class="asma-arabic">العَدْلُ</div>
+                    <div class="asma-name">Al-Adl</div>
+                    <div class="asma-meaning">Adolatli</div>
+                    <div class="asma-description">Mutlaq adolat sohibi</div>
+                </div>
+
+                <div class="asma-card">
+                    <div class="asma-number">31</div>
+                    <div class="asma-arabic">اللَّطِيفُ</div>
+                    <div class="asma-name">Al-Latif</div>
+                    <div class="asma-meaning">Lutf qiluvchi</div>
+                    <div class="asma-description">Bandalariga lutf va marhamat ko'rsatuvchi</div>
+                </div>
+
+                <div class="asma-card">
+                    <div class="asma-number">32</div>
+                    <div class="asma-arabic">الخَبِيرُ</div>
+                    <div class="asma-name">Al-Xabir</div>
+                    <div class="asma-meaning">Xabardor</div>
+                    <div class="asma-description">Har narsadan xabardor bo'lgan zot</div>
+                </div>
+
+                <div class="asma-card">
+                    <div class="asma-number">33</div>
+                    <div class="asma-arabic">الحَلِيمُ</div>
+                    <div class="asma-name">Al-Halim</div>
+                    <div class="asma-meaning">Halim</div>
+                    <div class="asma-description">Jazolashga shoshilmaydigan, muloyim zot</div>
+                </div>
+
+                <div class="asma-card">
+                    <div class="asma-number">34</div>
+                    <div class="asma-arabic">العَظِيمُ</div>
+                    <div class="asma-name">Al-Azim</div>
+                    <div class="asma-meaning">Ulug'</div>
+                    <div class="asma-description">Ulug'lik va buyuklik sohibi</div>
+                </div>
+
+                <div class="asma-card">
+                    <div class="asma-number">35</div>
+                    <div class="asma-arabic">الغَفُورُ</div>
+                    <div class="asma-name">Al-G'afur</div>
+                    <div class="asma-meaning">Mag'firat qiluvchi</div>
+                    <div class="asma-description">Gunohlarni kechiruvchi zot</div>
+                </div>
+
+                <div class="asma-card">
+                    <div class="asma-number">36</div>
+                    <div class="asma-arabic">الشَّكُورُ</div>
+                    <div class="asma-name">Ash-Shakur</div>
+                    <div class="asma-meaning">Shukr qiluvchi</div>
+                    <div class="asma-description">Oz amalga ko'p mukofot beruvchi</div>
+                </div>
+
+                <div class="asma-card">
+                    <div class="asma-number">37</div>
+                    <div class="asma-arabic">العَلِيُّ</div>
+                    <div class="asma-name">Al-Aliy</div>
+                    <div class="asma-meaning">Oliy</div>
+                    <div class="asma-description">Martabasi oliy bo'lgan zot</div>
+                </div>
+
+                <div class="asma-card">
+                    <div class="asma-number">38</div>
+                    <div class="asma-arabic">الكَبِيرُ</div>
+                    <div class="asma-name">Al-Kabir</div>
+                    <div class="asma-meaning">Buyuk</div>
+                    <div class="asma-description">Har narsadan buyuk bo'lgan zot</div>
+                </div>
+
+                <div class="asma-card">
+                    <div class="asma-number">39</div>
+                    <div class="asma-arabic">الحَفِيظُ</div>
+                    <div class="asma-name">Al-Hafiz</div>
+                    <div class="asma-meaning">Saqlovchi</div>
+                    <div class="asma-description">Har narsani muhofaza qiluvchi</div>
+                </div>
+
+                <div class="asma-card">
+                    <div class="asma-number">40</div>
+                    <div class="asma-arabic">المُقِيتُ</div>
+                    <div class="asma-name">Al-Muqit</div>
+                    <div class="asma-meaning">Rizq beruvchi</div>
+                    <div class="asma-description">Barcha maxluqotlarning rizqini ta'minlovchi</div>
+                </div>
+
+                <div class="asma-card">
+                    <div class="asma-number">41</div>
+                    <div class="asma-arabic">الحَسِيبُ</div>
+                    <div class="asma-name">Al-Hasib</div>
+                    <div class="asma-meaning">Hisob qiluvchi</div>
+                    <div class="asma-description">Bandalarning amallarini hisobga oluvchi</div>
+                </div>
+
+                <div class="asma-card">
+                    <div class="asma-number">42</div>
+                    <div class="asma-arabic">الجَلِيلُ</div>
+                    <div class="asma-name">Al-Jalil</div>
+                    <div class="asma-meaning">Ulug'vor</div>
+                    <div class="asma-description">Ulug'vorlik va buyuklik sohibi</div>
+                </div>
+
+                <div class="asma-card">
+                    <div class="asma-number">43</div>
+                    <div class="asma-arabic">الكَرِيمُ</div>
+                    <div class="asma-name">Al-Karim</div>
+                    <div class="asma-meaning">Saxiy</div>
+                    <div class="asma-description">Cheksiz saxovat va karami keng bo'lgan zot</div>
+                </div>
+
+                <div class="asma-card">
+                    <div class="asma-number">44</div>
+                    <div class="asma-arabic">الرَّقِيبُ</div>
+                    <div class="asma-name">Ar-Raqib</div>
+                    <div class="asma-meaning">Kuzatuvchi</div>
+                    <div class="asma-description">Har bir narsani kuzatib turuvchi</div>
+                </div>
+
+                <div class="asma-card">
+                    <div class="asma-number">45</div>
+                    <div class="asma-arabic">المُجِيبُ</div>
+                    <div class="asma-name">Al-Mujib</div>
+                    <div class="asma-meaning">Ijobat qiluvchi</div>
+                    <div class="asma-description">Duolarni qabul qiluvchi</div>
+                </div>
+
+                <div class="asma-card">
+                    <div class="asma-number">46</div>
+                    <div class="asma-arabic">الوَاسِعُ</div>
+                    <div class="asma-name">Al-Vasi'</div>
+                    <div class="asma-meaning">Keng</div>
+                    <div class="asma-description">Rahmati va ilmi keng bo'lgan zot</div>
+                </div>
+
+                <div class="asma-card">
+                    <div class="asma-number">47</div>
+                    <div class="asma-arabic">الحَكِيمُ</div>
+                    <div class="asma-name">Al-Hakim</div>
+                    <div class="asma-meaning">Hikmatli</div>
+                    <div class="asma-description">Har bir ishni hikmat bilan qiluvchi</div>
+                </div>
+
+                <div class="asma-card">
+                    <div class="asma-number">48</div>
+                    <div class="asma-arabic">الوَدُودُ</div>
+                    <div class="asma-name">Al-Vadud</div>
+                    <div class="asma-meaning">Sevuvchi</div>
+                    <div class="asma-description">Bandalarini sevuvchi va ular tomonidan seviluvchi zot</div>
+                </div>
+
+                <div class="asma-card">
+                    <div class="asma-number">49</div>
+                    <div class="asma-arabic">المَجِيدُ</div>
+                    <div class="asma-name">Al-Majid</div>
+                    <div class="asma-meaning">Ulug'vor</div>
+                    <div class="asma-description">Sharaf va ulug'likda benihoya bo'lgan zot</div>
+                </div>
+
+                <div class="asma-card">
+                    <div class="asma-number">50</div>
+                    <div class="asma-arabic">البَاعِثُ</div>
+                    <div class="asma-name">Al-Ba'is</div>
+                    <div class="asma-meaning">Tiriltiruvchi</div>
+                    <div class="asma-description">O'liklarni qayta tiriltiruvchi</div>
+                </div>
+
+                <div class="asma-card">
+                    <div class="asma-number">51</div>
+                    <div class="asma-arabic">الشَّهِيدُ</div>
+                    <div class="asma-name">Ash-Shahid</div>
+                    <div class="asma-meaning">Guvoh</div>
+                    <div class="asma-description">Har narsaga guvoh bo'lgan zot</div>
+                </div>
+
+                <div class="asma-card">
+                    <div class="asma-number">52</div>
+                    <div class="asma-arabic">الحَقُّ</div>
+                    <div class="asma-name">Al-Haqq</div>
+                    <div class="asma-meaning">Haq</div>
+                    <div class="asma-description">Haqiqiy va o'zgarmas zot</div>
+                </div>
+
+                <div class="asma-card">
+                    <div class="asma-number">53</div>
+                    <div class="asma-arabic">الوَكِيلُ</div>
+                    <div class="asma-name">Al-Vakil</div>
+                    <div class="asma-meaning">Ishonchli vakil</div>
+                    <div class="asma-description">Ishlarni boshqaruvchi va himoya qiluvchi</div>
+                </div>
+
+                <div class="asma-card">
+                    <div class="asma-number">54</div>
+                    <div class="asma-arabic">القَوِيُّ</div>
+                    <div class="asma-name">Al-Qaviy</div>
+                    <div class="asma-meaning">Kuchli</div>
+                    <div class="asma-description">Cheksiz kuch-quvvat sohibi</div>
+                </div>
+
+                <div class="asma-card">
+                    <div class="asma-number">55</div>
+                    <div class="asma-arabic">المَتِينُ</div>
+                    <div class="asma-name">Al-Matin</div>
+                    <div class="asma-meaning">Qudratli</div>
+                    <div class="asma-description">Kuch-quvvati mustahkam bo'lgan zot</div>
+                </div>
+
+                <div class="asma-card">
+                    <div class="asma-number">56</div>
+                    <div class="asma-arabic">الوَلِيُّ</div>
+                    <div class="asma-name">Al-Valiy</div>
+                    <div class="asma-meaning">Do'st</div>
+                    <div class="asma-description">Mo'minlarning do'sti va homiysi</div>
+                </div>
+
+                <div class="asma-card">
+                    <div class="asma-number">57</div>
+                    <div class="asma-arabic">الحَمِيدُ</div>
+                    <div class="asma-name">Al-Hamid</div>
+                    <div class="asma-meaning">Maqtalgan</div>
+                    <div class="asma-description">Barcha maqtovlar egasi</div>
+                </div>
+
+                <div class="asma-card">
+                    <div class="asma-number">58</div>
+                    <div class="asma-arabic">المُحْصِي</div>
+                    <div class="asma-name">Al-Muhsi</div>
+                    <div class="asma-meaning">Hisoblovchi</div>
+                    <div class="asma-description">Har bir narsani hisobga oluvchi</div>
+                </div>
+
+                <div class="asma-card">
+                    <div class="asma-number">59</div>
+                    <div class="asma-arabic">المُبْدِئُ</div>
+                    <div class="asma-name">Al-Mubdi'</div>
+                    <div class="asma-meaning">Boshlovchi</div>
+                    <div class="asma-description">Yaratishni boshlagan zot</div>
+                </div>
+
+                <div class="asma-card">
+                    <div class="asma-number">60</div>
+                    <div class="asma-arabic">المُعِيدُ</div>
+                    <div class="asma-name">Al-Mu'id</div>
+                    <div class="asma-meaning">Qaytaruvchi</div>
+                    <div class="asma-description">Qayta yaratuvchi zot</div>
+                </div>
+
+                <div class="asma-card">
+                    <div class="asma-number">61</div>
+                    <div class="asma-arabic">المُحْيِي</div>
+                    <div class="asma-name">Al-Muhyi</div>
+                    <div class="asma-meaning">Tiriltiruvchi</div>
+                    <div class="asma-description">Hayot beruvchi zot</div>
+                </div>
+
+                <div class="asma-card">
+                    <div class="asma-number">62</div>
+                    <div class="asma-arabic">المُمِيتُ</div>
+                    <div class="asma-name">Al-Mumit</div>
+                    <div class="asma-meaning">O'ldiruvchi</div>
+                    <div class="asma-description">O'lim beruvchi zot</div>
+                </div>
+
+                <div class="asma-card">
+                    <div class="asma-number">63</div>
+                    <div class="asma-arabic">الحَيُّ</div>
+                    <div class="asma-name">Al-Hayy</div>
+                    <div class="asma-meaning">Tirik</div>
+                    <div class="asma-description">Abadiy hayot sohibi</div>
+                </div>
+
+                <div class="asma-card">
+                    <div class="asma-number">64</div>
+                    <div class="asma-arabic">القَيُّومُ</div>
+                    <div class="asma-name">Al-Qayyum</div>
+                    <div class="asma-meaning">Qoim</div>
+                    <div class="asma-description">O'z-o'zi bilan qoim bo'lgan zot</div>
+                </div>
+
+                <div class="asma-card">
+                    <div class="asma-number">65</div>
+                    <div class="asma-arabic">الوَاجِدُ</div>
+                    <div class="asma-name">Al-Vajid</div>
+                    <div class="asma-meaning">Topuvchi</div>
+                    <div class="asma-description">Xohlagan narsasini topuvchi</div>
+                </div>
+
+                <div class="asma-card">
+                    <div class="asma-number">66</div>
+                    <div class="asma-arabic">المَاجِدُ</div>
+                    <div class="asma-name">Al-Majid</div>
+                    <div class="asma-meaning">Ulug'vor</div>
+                    <div class="asma-description">Ulug'vorlik va sharaf sohibi</div>
+                </div>
+
+                <div class="asma-card">
+                    <div class="asma-number">67</div>
+                    <div class="asma-arabic">الوَاحِدُ</div>
+                    <div class="asma-name">Al-Vahid</div>
+                    <div class="asma-meaning">Yagona</div>
+                    <div class="asma-description">Yagonaligi mutlaq bo'lgan zot</div>
+                </div>
+
+                <div class="asma-card">
+                    <div class="asma-number">68</div>
+                    <div class="asma-arabic">الصَّمَدُ</div>
+                    <div class="asma-name">As-Somad</div>
+                    <div class="asma-meaning">Behojat</div>
+                    <div class="asma-description">Hech kimga muhtoj bo'lmagan zot</div>
+                </div>
+
+                <div class="asma-card">
+                    <div class="asma-number">69</div>
+                    <div class="asma-arabic">القَادِرُ</div>
+                    <div class="asma-name">Al-Qodir</div>
+                    <div class="asma-meaning">Qodir</div>
+                    <div class="asma-description">Har narsaga qodir bo'lgan zot</div>
+                </div>
+
+                <div class="asma-card">
+                    <div class="asma-number">70</div>
+                    <div class="asma-arabic">المُقْتَدِرُ</div>
+                    <div class="asma-name">Al-Muqtadir</div>
+                    <div class="asma-meaning">Qudratli</div>
+                    <div class="asma-description">Cheksiz qudrat sohibi</div>
+                </div>
+
+                <div class="asma-card">
+                    <div class="asma-number">71</div>
+                    <div class="asma-arabic">المُقَدِّمُ</div>
+                    <div class="asma-name">Al-Muqaddim</div>
+                    <div class="asma-meaning">Oldinga suruvchi</div>
+                    <div class="asma-description">Xohlaganini oldinga suruvchi</div>
+                </div>
+
+                <div class="asma-card">
+                    <div class="asma-number">72</div>
+                    <div class="asma-arabic">المُؤَخِّرُ</div>
+                    <div class="asma-name">Al-Mu'axxir</div>
+                    <div class="asma-meaning">Orqaga suruvchi</div>
+                    <div class="asma-description">Xohlaganini orqaga suruvchi</div>
+                </div>
+
+                <div class="asma-card">
+                    <div class="asma-number">73</div>
+                    <div class="asma-arabic">الأَوَّلُ</div>
+                    <div class="asma-name">Al-Avval</div>
+                    <div class="asma-meaning">Avvalgi</div>
+                    <div class="asma-description">Boshlanishi yo'q, azaliy zot</div>
+                </div>
+
+                <div class="asma-card">
+                    <div class="asma-number">74</div>
+                    <div class="asma-arabic">الآخِرُ</div>
+                    <div class="asma-name">Al-Axir</div>
+                    <div class="asma-meaning">Oxirgi</div>
+                    <div class="asma-description">Oxiri yo'q, abadiy zot</div>
+                </div>
+
+                <div class="asma-card">
+                    <div class="asma-number">75</div>
+                    <div class="asma-arabic">الظَّاهِرُ</div>
+                    <div class="asma-name">Az-Zohir</div>
+                    <div class="asma-meaning">Zohir</div>
+                    <div class="asma-description">Dalillari bilan zohir bo'lgan zot</div>
+                </div>
+
+                <div class="asma-card">
+                    <div class="asma-number">76</div>
+                    <div class="asma-arabic">البَاطِنُ</div>
+                    <div class="asma-name">Al-Botin</div>
+                    <div class="asma-meaning">Botin</div>
+                    <div class="asma-description">Mohiyati yashirin bo'lgan zot</div>
+                </div>
+
+                <div class="asma-card">
+                    <div class="asma-number">77</div>
+                    <div class="asma-arabic">الوَالِي</div>
+                    <div class="asma-name">Al-Vali</div>
+                    <div class="asma-meaning">Hokim</div>
+                    <div class="asma-description">Barcha ishlarni boshqaruvchi</div>
+                </div>
+
+                <div class="asma-card">
+                    <div class="asma-number">78</div>
+                    <div class="asma-arabic">المُتَعَالِي</div>
+                    <div class="asma-name">Al-Muta'ali</div>
+                    <div class="asma-meaning">Oliy</div>
+                    <div class="asma-description">Nuqsonlardan yuqori bo'lgan zot</div>
+                </div>
+
+                <div class="asma-card">
+                    <div class="asma-number">79</div>
+                    <div class="asma-arabic">البَرُّ</div>
+                    <div class="asma-name">Al-Barr</div>
+                    <div class="asma-meaning">Yaxshilik qiluvchi</div>
+                    <div class="asma-description">Bandalariga yaxshilik qiluvchi</div>
+                </div>
+
+                <div class="asma-card">
+                    <div class="asma-number">80</div>
+                    <div class="asma-arabic">التَّوَّابُ</div>
+                    <div class="asma-name">At-Tavvab</div>
+                    <div class="asma-meaning">Tavbalarni qabul qiluvchi</div>
+                    <div class="asma-description">Bandalarning tavbasini qabul qiluvchi</div>
+                </div>
+
+                <div class="asma-card">
+                    <div class="asma-number">81</div>
+                    <div class="asma-arabic">المُنْتَقِمُ</div>
+                    <div class="asma-name">Al-Muntaqim</div>
+                    <div class="asma-meaning">Intiqom oluvchi</div>
+                    <div class="asma-description">Zolimlardan intiqom oluvchi</div>
+                </div>
+
+                <div class="asma-card">
+                    <div class="asma-number">82</div>
+                    <div class="asma-arabic">العَفُوُّ</div>
+                    <div class="asma-name">Al-Afuvv</div>
+                    <div class="asma-meaning">Afv qiluvchi</div>
+                    <div class="asma-description">Gunohlarni afv qiluvchi</div>
+                </div>
+
+                <div class="asma-card">
+                    <div class="asma-number">83</div>
+                    <div class="asma-arabic">الرَّؤُوفُ</div>
+                    <div class="asma-name">Ar-Ra'uf</div>
+                    <div class="asma-meaning">Mehribon</div>
+                    <div class="asma-description">Bandalariga mehribon bo'lgan zot</div>
+                </div>
+
+                <div class="asma-card">
+                    <div class="asma-number">84</div>
+                    <div class="asma-arabic">مَالِكُ المُلْكِ</div>
+                    <div class="asma-name">Malikul-Mulk</div>
+                    <div class="asma-meaning">Mulk egasi</div>
+                    <div class="asma-description">Barcha mulklarning egasi</div>
+                </div>
+
+                <div class="asma-card">
+                    <div class="asma-number">85</div>
+                    <div class="asma-arabic">ذُو الجَلاَلِ وَالإكْرَامِ</div>
+                    <div class="asma-name">Zul-Jalali val-Ikrom</div>
+                    <div class="asma-meaning">Ulug'lik va hurmat egasi</div>
+                    <div class="asma-description">Ulug'lik va hurmat sohibi</div>
+                </div>
+
+                <div class="asma-card">
+                    <div class="asma-number">86</div>
+                    <div class="asma-arabic">المُقْسِطُ</div>
+                    <div class="asma-name">Al-Muqsit</div>
+                    <div class="asma-meaning">Adolatli</div>
+                    <div class="asma-description">Adolat bilan hukm qiluvchi</div>
+                </div>
+
+                <div class="asma-card">
+                    <div class="asma-number">87</div>
+                    <div class="asma-arabic">الجَامِعُ</div>
+                    <div class="asma-name">Al-Jami'</div>
+                    <div class="asma-meaning">Jamllovchi</div>
+                    <div class="asma-description">Barcha maxluqotlarni jamllovchi</div>
+                </div>
+
+                <div class="asma-card">
+                    <div class="asma-number">88</div>
+                    <div class="asma-arabic">الغَنِيُّ</div>
+                    <div class="asma-name">Al-G'aniy</div>
+                    <div class="asma-meaning">Boy</div>
+                    <div class="asma-description">Behojat va boy zot</div>
+                </div>
+
+                <div class="asma-card">
+                    <div class="asma-number">89</div>
+                    <div class="asma-arabic">المُغْنِي</div>
+                    <div class="asma-name">Al-Mug'ni</div>
+                    <div class="asma-meaning">Boyituvchi</div>
+                    <div class="asma-description">Xohlaganini boyituvchi</div>
+                </div>
+
+                <div class="asma-card">
+                    <div class="asma-number">90</div>
+                    <div class="asma-arabic">المَانِعُ</div>
+                    <div class="asma-name">Al-Mani'</div>
+                    <div class="asma-meaning">Man qiluvchi</div>
+                    <div class="asma-description">Xohlaganidan man qiluvchi</div>
+                </div>
+
+                <div class="asma-card">
+                    <div class="asma-number">91</div>
+                    <div class="asma-arabic">الضَّارُّ</div>
+                    <div class="asma-name">Ad-Dorr</div>
+                    <div class="asma-meaning">Zarar beruvchi</div>
+                    <div class="asma-description">Xohlaganiga zarar yetkazuvchi</div>
+                </div>
+
+                <div class="asma-card">
+                    <div class="asma-number">92</div>
+                    <div class="asma-arabic">النَّافِعُ</div>
+                    <div class="asma-name">An-Nafi'</div>
+                    <div class="asma-meaning">Foyda beruvchi</div>
+                    <div class="asma-description">Xohlaganiga foyda beruvchi</div>
+                </div>
+
+                <div class="asma-card">
+                    <div class="asma-number">93</div>
+                    <div class="asma-arabic">النُّورُ</div>
+                    <div class="asma-name">An-Nur</div>
+                    <div class="asma-meaning">Nur</div>
+                    <div class="asma-description">Olamlarni nurga to'ldiruvchi</div>
+                </div>
+
+                <div class="asma-card">
+                    <div class="asma-number">94</div>
+                    <div class="asma-arabic">الهَادِي</div>
+                    <div class="asma-name">Al-Hadi</div>
+                    <div class="asma-meaning">Hidoyat qiluvchi</div>
+                    <div class="asma-description">To'g'ri yo'lga boshlovchi</div>
+                </div>
+
+                <div class="asma-card">
+                    <div class="asma-number">95</div>
+                    <div class="asma-arabic">البَدِيعُ</div>
+                    <div class="asma-name">Al-Badi'</div>
+                    <div class="asma-meaning">Yaratuvchi</div>
+                    <div class="asma-description">O'xshashi yo'q narsalarni yaratuvchi</div>
+                </div>
+
+                <div class="asma-card">
+                    <div class="asma-number">96</div>
+                    <div class="asma-arabic">البَاقِي</div>
+                    <div class="asma-name">Al-Baqi</div>
+                    <div class="asma-meaning">Boqiy</div>
+                    <div class="asma-description">Abadiy qoluvchi zot</div>
+                </div>
+
+                <div class="asma-card">
+                    <div class="asma-number">97</div>
+                    <div class="asma-arabic">الوَارِثُ</div>
+                    <div class="asma-name">Al-Varis</div>
+                    <div class="asma-meaning">Merosxo'r</div>
+                    <div class="asma-description">Hamma narsa qaytadigan zot</div>
+                </div>
+
+                <div class="asma-card">
+                    <div class="asma-number">98</div>
+                    <div class="asma-arabic">الرَّشِيدُ</div>
+                    <div class="asma-name">Ar-Rashid</div>
+                    <div class="asma-meaning">To'g'ri yo'l ko'rsatuvchi</div>
+                    <div class="asma-description">Har bir ishni to'g'ri qiluvchi</div>
+                </div>
+
+                <div class="asma-card">
+                    <div class="asma-number">99</div>
+                    <div class="asma-arabic">الصَّبُورُ</div>
+                    <div class="asma-name">As-Sobur</div>
+                    <div class="asma-meaning">Sabrli</div>
+                    <div class="asma-description">Cheksiz sabr-toqat sohibi</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Payg'ambarlar tarixi section -->
+        <div id="prophets" class="section">
+            <h2 class="section-title">Payg'ambarlar tarixi</h2>
+            <div class="prophets-container">
+                <!-- Idris (a.s.) -->
+                <div class="prophet-card">
+                    <h3 class="prophet-name">Idris (a.s.)</h3>
+                    <div class="prophet-arabic">إدريس عليه السلام</div>
+                    <span class="prophet-period">Ilk olim va yozuvchi</span>
+                    <p class="prophet-info">
+                        Birinchi qalam bilan yozgan va tikuvchilik qilgan payg'ambar. U ilm-fan va yozuv san'atining asoschisi hisoblanadi.
+                    </p>
+                    <div class="prophet-miracles">
+                        <h4 class="miracle-title">Mo'jizalari</h4>
+                        <ul class="miracle-list">
+                            <li>Osmonga ko'tarilishi</li>
+                            <li>Ilm-fanni rivojlantirishi</li>
+                            <li>Yozuv san'atini o'rgatishi</li>
+                        </ul>
+                    </div>
+                    <div class="prophet-lessons">
+                        <h4 class="lessons-title">Ibratlar</h4>
+                        <p>Ilm olish va o'rgatish fazilati. Idris (a.s.) insoniyatga ilm-fan asoslarini o'rgatgan.</p>
+                    </div>
+                    <div class="prophet-reference">Manba: Qur'oni Karim, Maryam surasi</div>
+                </div>
+
+                <!-- Hud (a.s.) -->
+                <div class="prophet-card">
+                    <h3 class="prophet-name">Hud (a.s.)</h3>
+                    <div class="prophet-arabic">هود عليه السلام</div>
+                    <span class="prophet-period">Od qavmining payg'ambari</span>
+                    <p class="prophet-info">
+                        Od qavmiga yuborilgan payg'ambar. Ular baland binolar qurib, kibr-havoga berilgan edilar.
+                    </p>
+                    <div class="prophet-miracles">
+                        <h4 class="miracle-title">Mo'jizalari</h4>
+                        <ul class="miracle-list">
+                            <li>Kuchli shamoldan saqlanish</li>
+                            <li>Mo'minlarni qutqarish</li>
+                            <li>Qavmiga ogohlantirishlar</li>
+                        </ul>
+                    </div>
+                    <div class="prophet-lessons">
+                        <h4 class="lessons-title">Ibratlar</h4>
+                        <p>Kibr-havoning oqibati. Hud (a.s.) qavmi o'z kuch-qudratiga ishonib, halokatga uchradi.</p>
+                    </div>
+                    <div class="prophet-reference">Manba: Qur'oni Karim, Hud surasi</div>
+                </div>
+
+                <!-- Solih (a.s.) -->
+                <div class="prophet-card">
+                    <h3 class="prophet-name">Solih (a.s.)</h3>
+                    <div class="prophet-arabic">صالح عليه السلام</div>
+                    <span class="prophet-period">Samud qavmining payg'ambari</span>
+                    <p class="prophet-info">
+                        Samud qavmiga yuborilgan payg'ambar. Qavmi toshlardan uylar o'yib yashar edilar.
+                    </p>
+                    <div class="prophet-miracles">
+                        <h4 class="miracle-title">Mo'jizalari</h4>
+                        <ul class="miracle-list">
+                            <li>Tuyaning toshdan chiqishi</li>
+                            <li>Tuya mo'jizasi</li>
+                            <li>Mo'minlarni qutqarishi</li>
+                        </ul>
+                    </div>
+                    <div class="prophet-lessons">
+                        <h4 class="lessons-title">Ibratlar</h4>
+                        <p>Allohning mo'jizalariga ishonmaslik oqibati. Samud qavmi tuyani so'yib, halokatga uchradi.</p>
+                    </div>
+                    <div class="prophet-reference">Manba: Qur'oni Karim, A'rof surasi</div>
+                </div>
+
+                <!-- Odam (a.s.) -->
+                <div class="prophet-card">
+                    <h3 class="prophet-name">Odam (a.s.)</h3>
+                    <div class="prophet-arabic">آدم عليه السلام</div>
+                    <span class="prophet-period">Birinchi payg'ambar</span>
+                    <p class="prophet-info">
+                        Alloh taolo tomonidan yaratilgan birinchi inson va payg'ambar. Alloh uni o'z qo'li bilan yaratdi va unga barcha narsalarning nomlarini o'rgatdi.
+                    </p>
+                    <div class="prophet-miracles">
+                        <h4 class="miracle-title">Mo'jizalari</h4>
+                        <ul class="miracle-list">
+                            <li>Farishtalarning unga sajda qilishi</li>
+                            <li>Barcha narsalarning nomlarini bilishi</li>
+                            <li>Jannatda yashagani</li>
+                        </ul>
+                    </div>
+                    <div class="prophet-lessons">
+                        <h4 class="lessons-title">Ibratlar</h4>
+                        <p>Tavba qilish va Allohning rahmatidan umid uzmaslik. Odam (a.s.) xato qilgandan so'ng chin dildan tavba qildi va Alloh uni kechirdi.</p>
+                    </div>
+                    <div class="prophet-reference">Manba: Qur'oni Karim, Baqara surasi</div>
+                </div>
+
+                <!-- Nuh (a.s.) -->
+                <div class="prophet-card">
+                    <h3 class="prophet-name">Nuh (a.s.)</h3>
+                    <div class="prophet-arabic">نوح عليه السلام</div>
+                    <span class="prophet-period">950 yil da'vat qilgan</span>
+                    <p class="prophet-info">
+                        Eng uzoq umr ko'rgan va da'vat qilgan payg'ambar. U o'z qavmini 950 yil davomida yagona Allohga ibodat qilishga chaqirdi.
+                    </p>
+                    <div class="prophet-miracles">
+                        <h4 class="miracle-title">Mo'jizalari</h4>
+                        <ul class="miracle-list">
+                            <li>Kema yasash va to'fon</li>
+                            <li>Hayvonlarning kemaga juft-juft bo'lib kirishi</li>
+                            <li>To'fondan najot topish</li>
+                        </ul>
+                    </div>
+                    <div class="prophet-lessons">
+                        <h4 class="lessons-title">Ibratlar</h4>
+                        <p>Sabr va qat'iyat. Nuh (a.s.) 950 yil davomida tinimsiz da'vat qildi va hech qachon umidsizlikka tushmadi.</p>
+                    </div>
+                    <div class="prophet-reference">Manba: Qur'oni Karim, Nuh surasi</div>
+                </div>
+
+                <!-- Ibrohim (a.s.) -->
+                <div class="prophet-card">
+                    <h3 class="prophet-name">Ibrohim (a.s.)</h3>
+                    <div class="prophet-arabic">إبراهيم عليه السلام</div>
+                    <span class="prophet-period">Xalilulloh (Allohning do'sti)</span>
+                    <p class="prophet-info">
+                        Allohning do'sti deb atalgan buyuk payg'ambar. Ka'bani qurishda o'g'li Ismoil (a.s.) bilan birga ishtirok etgan.
+                    </p>
+                    <div class="prophet-miracles">
+                        <h4 class="miracle-title">Mo'jizalari</h4>
+                        <ul class="miracle-list">
+                            <li>Olovning unga zarar yetkazmasligi</li>
+                            <li>Qushlarni tiriltirishni ko'rishi</li>
+                            <li>Ka'baning qurilishi</li>
+                        </ul>
+                    </div>
+                    <div class="prophet-lessons">
+                        <h4 class="lessons-title">Ibratlar</h4>
+                        <p>Tavhid va imon. Ibrohim (a.s.) haqiqatni izlash va uni himoya qilishda namuna bo'ldi.</p>
+                    </div>
+                    <div class="prophet-reference">Manba: Qur'oni Karim, Ibrohim surasi</div>
+                </div>
+
+                <!-- Muso (a.s.) -->
+                <div class="prophet-card">
+                    <h3 class="prophet-name">Muso (a.s.)</h3>
+                    <div class="prophet-arabic">موسى عليه السلام</div>
+                    <span class="prophet-period">Kalimulloh (Alloh bilan gaplashgan)</span>
+                    <p class="prophet-info">
+                        Alloh bilan bevosita gaplashgan payg'ambar. Fir'avnga qarshi kurashgan va Bani Isroilni ozod qilgan.
+                    </p>
+                    <div class="prophet-miracles">
+                        <h4 class="miracle-title">Mo'jizalari</h4>
+                        <ul class="miracle-list">
+                            <li>Hassasining ilonga aylanishi</li>
+                            <li>Dengizning ikkiga bo'linishi</li>
+                            <li>Qo'lining nur sochishi</li>
+                        </ul>
+                    </div>
+                    <div class="prophet-lessons">
+                        <h4 class="lessons-title">Ibratlar</h4>
+                        <p>Zulmga qarshi kurashish va adolat o'rnatish. Muso (a.s.) Fir'avnning zulmiga qarshi kurashdi.</p>
+                    </div>
+                    <div class="prophet-reference">Manba: Qur'oni Karim, Qasas surasi</div>
+                </div>
+
+                <!-- Iso (a.s.) -->
+                <div class="prophet-card">
+                    <h3 class="prophet-name">Iso (a.s.)</h3>
+                    <div class="prophet-arabic">عيسى عليه السلام</div>
+                    <span class="prophet-period">Ruhulloh (Allohning ruhi)</span>
+                    <p class="prophet-info">
+                        Otasiz dunyoga kelgan mo'jizaviy payg'ambar. Ko'plab shifo mo'jizalari ko'rsatgan.
+                    </p>
+                    <div class="prophet-miracles">
+                        <h4 class="miracle-title">Mo'jizalari</h4>
+                        <ul class="miracle-list">
+                            <li>Beshikda gapirishi</li>
+                            <li>O'liklarni tiriltirishi</li>
+                            <li>Kasallarni shifolashi</li>
+                        </ul>
+                    </div>
+                    <div class="prophet-lessons">
+                        <h4 class="lessons-title">Ibratlar</h4>
+                        <p>Rahm-shafqat va mehribonlik. Iso (a.s.) bemorlarni davolash va muhtojlarga yordam berishda namuna bo'ldi.</p>
+                    </div>
+                    <div class="prophet-reference">Manba: Qur'oni Karim, Maryam surasi</div>
+                </div>
+
+                <!-- Muhammad ﷺ -->
+                <div class="prophet-card">
+                    <h3 class="prophet-name">Muhammad ﷺ</h3>
+                    <div class="prophet-arabic">محمد صلى الله عليه وسلم</div>
+                    <span class="prophet-period">Xotamun-Nabiyyin (Payg'ambarlar sultoni)</span>
+                    <p class="prophet-info">
+                        Allohning so'nggi va sevimli payg'ambari. Butun insoniyat uchun rahmat qilib yuborilgan.
+                    </p>
+                    <div class="prophet-miracles">
+                        <h4 class="miracle-title">Mo'jizalari</h4>
+                        <ul class="miracle-list">
+                            <li>Qur'oni Karim</li>
+                            <li>Oyning ikkiga bo'linishi</li>
+                            <li>Isro va Me'roj</li>
+                        </ul>
+                    </div>
+                    <div class="prophet-lessons">
+                        <h4 class="lessons-title">Ibratlar</h4>
+                        <p>Axloq va odob. Muhammad ﷺ eng go'zal axloq sohibi bo'lib, butun insoniyat uchun namuna bo'ldilar.</p>
+                    </div>
+                    <div class="prophet-reference">Manba: Qur'oni Karim va Sahih hadislar</div>
+                </div>
+
+                <!-- Yusuf (a.s.) -->
+                <div class="prophet-card">
+                    <h3 class="prophet-name">Yusuf (a.s.)</h3>
+                    <div class="prophet-arabic">يوسف عليه السلام</div>
+                    <span class="prophet-period">Misr vaziri</span>
+                    <p class="prophet-info">
+                        Eng chiroyli payg'ambar. Tushlarni ta'bir qilish ilmiga ega bo'lgan. Misr mamlakatining xazinaboni va vaziri bo'lgan.
+                    </p>
+                    <div class="prophet-miracles">
+                        <h4 class="miracle-title">Mo'jizalari</h4>
+                        <ul class="miracle-list">
+                            <li>Tushlarni ta'bir qilish</li>
+                            <li>Quduqdan qutqarilish</li>
+                            <li>Zindonda najot topish</li>
+                        </ul>
+                    </div>
+                    <div class="prophet-lessons">
+                        <h4 class="lessons-title">Ibratlar</h4>
+                        <p>Sabr-qanoat va kechirimlilikning go'zal namunasi. Yusuf (a.s.) akalariga nisbatan kek saqlamadi.</p>
+                    </div>
+                    <div class="prophet-reference">Manba: Qur'oni Karim, Yusuf surasi</div>
+                </div>
+
+                <!-- Dovud (a.s.) -->
+                <div class="prophet-card">
+                    <h3 class="prophet-name">Dovud (a.s.)</h3>
+                    <div class="prophet-arabic">داود عليه السلام</div>
+                    <span class="prophet-period">Isroil podshohi</span>
+                    <p class="prophet-info">
+                        Zabur kitobining sohibi. Temir bilan ishlash san'atini bilgan va go'zal ovozga ega bo'lgan payg'ambar.
+                    </p>
+                    <div class="prophet-miracles">
+                        <h4 class="miracle-title">Mo'jizalari</h4>
+                        <ul class="miracle-list">
+                            <li>Temirni qo'l bilan shakllantirish</li>
+                            <li>Tog'lar va qushlar bilan tasbeh aytish</li>
+                            <li>Adolatli hukm chiqarish</li>
+                        </ul>
+                    </div>
+                    <div class="prophet-lessons">
+                        <h4 class="lessons-title">Ibratlar</h4>
+                        <p>Adolat va hikmatning ahamiyati. Dovud (a.s.) o'z davrining eng adolatli hukmdori bo'lgan.</p>
+                    </div>
+                    <div class="prophet-reference">Manba: Qur'oni Karim, Saba surasi</div>
+                </div>
+
+                <!-- Sulaymon (a.s.) -->
+                <div class="prophet-card">
+                    <h3 class="prophet-name">Sulaymon (a.s.)</h3>
+                    <div class="prophet-arabic">سليمان عليه السلام</div>
+                    <span class="prophet-period">Buyuk podshoh</span>
+                    <p class="prophet-info">
+                        Insonlar, jinlar va hayvonlar ustidan hukmronlik qilgan. Barcha jonzotlar tilini bilgan payg'ambar.
+                    </p>
+                    <div class="prophet-miracles">
+                        <h4 class="miracle-title">Mo'jizalari</h4>
+                        <ul class="miracle-list">
+                            <li>Shamolni boshqarish</li>
+                            <li>Hayvonlar bilan gaplashish</li>
+                            <li>Jinlarni boshqarish</li>
+                        </ul>
+                    </div>
+                    <div class="prophet-lessons">
+                        <h4 class="lessons-title">Ibratlar</h4>
+                        <p>Boylik va hokimiyat Allohning sinovi. Sulaymon (a.s.) ulkan saltanatga ega bo'lsa ham, kamtarlikni unutmagan.</p>
+                    </div>
+                    <div class="prophet-reference">Manba: Qur'oni Karim, Naml surasi</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer class="developer-info">
+        <p>Dasturchi: <a href="https://t.me/Justin_Claberly" target="_blank">Justin_Claberly</a></p>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>

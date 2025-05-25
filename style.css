@@ -20,41 +20,44 @@ body {
 }
 
 .container {
-    max-width: 600px;
+    max-width: 1200px;
     margin: 0 auto;
     padding: 20px;
 }
 
 .nav-menu {
     display: flex;
-    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 10px;
     margin-bottom: 20px;
-    background: var(--card-bg);
-    padding: 10px;
-    border-radius: 12px;
-    box-shadow: var(--shadow);
+    justify-content: center;
 }
 
 .nav-btn {
-    flex: 1;
-    padding: 12px;
-    margin: 0 5px;
+    padding: 12px 20px;
     border: none;
     border-radius: 8px;
-    background: transparent;
-    color: var(--text-color);
+    background-color: #4CAF50;
+    color: white;
     cursor: pointer;
-    transition: all 0.3s ease;
+    font-size: 16px;
+    transition: background-color 0.3s;
+}
+
+.nav-btn:hover {
+    background-color: #45a049;
 }
 
 .nav-btn.active {
-    background: var(--primary-color);
-    color: white;
+    background-color: #357a38;
 }
 
 .section {
     display: none;
-    animation: fadeIn 0.5s ease;
+    padding: 20px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
 
 .section.active {
@@ -85,15 +88,11 @@ body {
 }
 
 .region-select {
-    width: 100%;
-    max-width: 300px;
-    padding: 12px;
-    border: 2px solid var(--primary-color);
-    border-radius: 10px;
-    background: white;
-    color: var(--text-color);
-    font-size: 1rem;
-    cursor: pointer;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    margin: 10px 0;
+    width: 200px;
 }
 
 .current-date {
@@ -104,19 +103,18 @@ body {
 
 .times-container {
     display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 15px;
-    margin: 20px 0;
+    margin-top: 20px;
 }
 
 .prayer-time {
+    background-color: #f8f9fa;
+    padding: 15px;
+    border-radius: 8px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 15px;
-    background: white;
-    border-radius: 10px;
-    box-shadow: var(--shadow);
-    transition: all 0.3s ease;
 }
 
 .prayer-info {
@@ -125,21 +123,19 @@ body {
 }
 
 .prayer-name {
-    font-size: 1.2rem;
-    font-weight: 600;
-    color: var(--text-color);
+    font-weight: bold;
+    color: #2c3e50;
 }
 
 .prayer-label {
-    font-size: 0.9rem;
-    color: #666;
-    margin-top: 5px;
+    font-size: 0.9em;
+    color: #7f8c8d;
 }
 
 .time {
-    font-size: 1.5rem;
-    font-weight: 600;
-    color: var(--primary-color);
+    font-size: 1.2em;
+    font-weight: bold;
+    color: #2c3e50;
 }
 
 .prayer-time.active {
@@ -195,6 +191,7 @@ body {
 /* Duolar Section */
 .duas-container {
     display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 20px;
     padding: 20px;
 }
@@ -231,11 +228,10 @@ body {
 }
 
 .dua-card {
-    background: var(--card-bg);
+    background-color: #fff;
+    border-radius: 10px;
     padding: 20px;
-    border-radius: 15px;
-    box-shadow: var(--shadow);
-    transition: all 0.3s ease;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
 
 .dua-card:hover {
@@ -248,8 +244,6 @@ body {
     justify-content: space-between;
     align-items: center;
     margin-bottom: 15px;
-    padding-bottom: 10px;
-    border-bottom: 1px solid #eee;
 }
 
 .dua-header h3 {
@@ -259,45 +253,36 @@ body {
 }
 
 .category-tag {
+    background-color: #e1f5fe;
+    color: #0288d1;
     padding: 5px 10px;
-    background: var(--primary-color);
-    color: white;
-    border-radius: 20px;
-    font-size: 0.8rem;
+    border-radius: 15px;
+    font-size: 0.8em;
 }
 
 .arabic-text {
-    font-family: 'Traditional Arabic', serif;
-    font-size: 1.8rem;
+    font-size: 1.5em;
     text-align: right;
     margin: 15px 0;
-    line-height: 2;
+    line-height: 1.6;
     color: #000;
 }
 
 .transliteration {
-    font-style: italic;
     color: #666;
     margin: 10px 0;
-    line-height: 1.6;
-    font-size: 1.1rem;
+    font-style: italic;
 }
 
 .meaning {
-    color: var(--text-color);
-    margin: 15px 0;
-    line-height: 1.6;
-    font-size: 1rem;
-    padding: 10px;
-    background: #f9f9f9;
-    border-radius: 8px;
+    color: #333;
+    margin: 10px 0;
 }
 
 .reference {
-    color: #666;
-    font-size: 0.9rem;
+    color: #888;
+    font-size: 0.9em;
     margin-top: 10px;
-    font-style: italic;
 }
 
 @media (max-width: 768px) {
@@ -306,7 +291,7 @@ body {
     }
     
     .arabic-text {
-        font-size: 1.5rem;
+        font-size: 1.3em;
     }
     
     .dua-header {
@@ -334,20 +319,17 @@ body {
 /* Asmaul Husna styles */
 .asma-container {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 20px;
     padding: 20px;
 }
 
 .asma-card {
-    background: linear-gradient(135deg, #ffffff, #f8f9fa);
-    border-radius: 15px;
+    background-color: #fff;
+    border-radius: 10px;
     padding: 20px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-    border: 2px solid #e8eaf6;
-    transition: all 0.4s ease;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
     position: relative;
-    overflow: hidden;
 }
 
 .asma-card:hover {
@@ -369,7 +351,7 @@ body {
     position: absolute;
     top: 10px;
     right: 10px;
-    background: #1a237e;
+    background-color: #4CAF50;
     color: white;
     width: 30px;
     height: 30px;
@@ -378,7 +360,6 @@ body {
     align-items: center;
     justify-content: center;
     font-weight: bold;
-    font-size: 0.9em;
 }
 
 .asma-arabic {
@@ -442,13 +423,10 @@ body {
 }
 
 .zikr-card {
-    background: linear-gradient(145deg, #ffffff, #f0f0f0);
-    border-radius: 15px;
+    background-color: #fff;
+    border-radius: 10px;
     padding: 20px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    position: relative;
-    overflow: hidden;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
 
 .zikr-card:hover {
@@ -721,18 +699,15 @@ body {
 .prophets-container {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2rem;
-    padding: 2rem;
+    gap: 20px;
+    padding: 20px;
 }
 
 .prophet-card {
-    background: linear-gradient(145deg, #ffffff, #f0f2f5);
-    border-radius: 20px;
-    padding: 1.5rem;
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    position: relative;
-    overflow: hidden;
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
 
 .prophet-card:hover {
@@ -751,28 +726,25 @@ body {
 }
 
 .prophet-name {
-    font-size: 1.5rem;
-    color: #1a237e;
-    margin-bottom: 0.5rem;
-    font-weight: 600;
+    color: #2c3e50;
+    margin: 0 0 10px 0;
 }
 
 .prophet-arabic {
-    font-family: 'Noto Naskh Arabic', serif;
-    font-size: 1.3rem;
-    color: #4CAF50;
-    margin-bottom: 1rem;
+    font-size: 1.5em;
     text-align: right;
+    margin: 10px 0;
+    color: #000;
 }
 
 .prophet-period {
     display: inline-block;
-    background: linear-gradient(90deg, #E3F2FD, #BBDEFB);
-    padding: 0.5rem 1rem;
+    background-color: #e1f5fe;
+    color: #0288d1;
+    padding: 5px 10px;
     border-radius: 15px;
-    font-size: 0.9rem;
-    color: #1565C0;
-    margin-bottom: 1rem;
+    font-size: 0.9em;
+    margin: 10px 0;
 }
 
 .prophet-info {
@@ -782,50 +754,38 @@ body {
 }
 
 .miracle-title, .lessons-title {
-    color: #1a237e;
-    font-size: 1.1rem;
-    margin-bottom: 0.8rem;
-    font-weight: 500;
+    color: #2c3e50;
+    margin: 15px 0 10px 0;
 }
 
 .miracle-list {
-    list-style: none;
+    list-style-type: none;
     padding-left: 0;
 }
 
 .miracle-list li {
+    margin: 5px 0;
+    padding-left: 20px;
     position: relative;
-    padding-left: 1.5rem;
-    margin-bottom: 0.5rem;
-    color: #37474F;
 }
 
-.miracle-list li::before {
-    content: '✨';
+.miracle-list li:before {
+    content: "•";
+    color: #4CAF50;
     position: absolute;
     left: 0;
-    color: #FFC107;
-}
-
-.prophet-lessons {
-    background: linear-gradient(145deg, #F5F5F5, #FAFAFA);
-    padding: 1rem;
-    border-radius: 10px;
-    margin: 1rem 0;
 }
 
 .prophet-reference {
-    font-size: 0.9rem;
-    color: #78909C;
-    font-style: italic;
-    margin-top: 1rem;
-    text-align: right;
+    color: #888;
+    font-size: 0.9em;
+    margin-top: 15px;
 }
 
 @media (max-width: 768px) {
     .prophets-container {
         grid-template-columns: 1fr;
-        padding: 1rem;
+        padding: 10px;
         gap: 1.5rem;
     }
 
@@ -839,5 +799,92 @@ body {
 
     .prophet-arabic {
         font-size: 1.1rem;
+    }
+}
+
+/* Mobil qurilmalar uchun moslashtirilgan stillar */
+@media screen and (max-width: 768px) {
+    .container {
+        padding: 10px;
+    }
+
+    .nav-menu {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .nav-btn {
+        width: 100%;
+        margin-bottom: 5px;
+        font-size: 14px;
+        padding: 10px;
+    }
+
+    .times-container {
+        grid-template-columns: 1fr;
+    }
+
+    .prayer-time {
+        padding: 10px;
+    }
+
+    .duas-container,
+    .zikr-container,
+    .asma-container,
+    .prophets-container {
+        grid-template-columns: 1fr;
+        padding: 10px;
+    }
+
+    .dua-card,
+    .zikr-card,
+    .asma-card,
+    .prophet-card {
+        padding: 15px;
+    }
+
+    .arabic-text {
+        font-size: 1.3em;
+    }
+
+    .dua-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .category-tag {
+        margin-top: 5px;
+    }
+
+    .section {
+        padding: 10px;
+        margin: 10px;
+    }
+}
+
+/* Kichik ekranli telefonlar uchun qo'shimcha moslashtirishlar */
+@media screen and (max-width: 480px) {
+    .nav-btn {
+        font-size: 13px;
+        padding: 8px;
+    }
+
+    .prayer-time {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .prayer-info {
+        margin-bottom: 10px;
+    }
+
+    .arabic-text {
+        font-size: 1.2em;
+    }
+
+    .asma-number {
+        width: 25px;
+        height: 25px;
+        font-size: 0.9em;
     }
 }
